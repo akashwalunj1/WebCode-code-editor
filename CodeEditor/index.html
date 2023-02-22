@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WebCode -Code editor</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+<div heading>
+  <h1>WebCode</h1>
+</div>
+
+
+<div class="container">
+  <div class="left">
+    <label id="html-logo"><i class="fa-brands fa-html5"></i></label>
+    <label>HTML</label>
+    <textarea id="html-code" onkeyup="run()"></textarea> 
+
+    <label id="css-logo"><i class="fa-brands fa-css3-alt"></i></label>
+    <label>CSS</label>
+    <textarea id="css-code" onkeyup="run()"></textarea> 
+
+    <label id="js-logo"><i class="fa-brands fa-js"></i></label>
+    <label>JAVASCRIPT</label>
+    <textarea id="js-code" onkeyup="run()"></textarea> 
+
+</div>
+
+
+<div class="right">
+<label><i class="fa-solid fa-play"></i></label>
+<label>OUTPUT</label>
+<iframe id="output" ></iframe>
+</div>
+</div>
+
+
+<div class="copyright">
+  <p>copyright <i class="fa-regular fa-copyright"></i> Akash Walunj</p>
+</div>
+
+
+
+<script src="https://kit.fontawesome.com/d8e08f7b80.js" crossorigin="anonymous"></script>
+<script>
+  function run(){
+    let htmlcode = document.getElementById("html-code").value;
+    let csscode = document.getElementById("css-code").value;
+    let jscode = document.getElementById("js-code").value;
+    let output = document.getElementById("output");
+        
+    output.contentDocument.body.innerHTML = htmlcode+"<style>"+csscode +"</style>"
+    output.contentWindow.eval(jscode);
+
+  }
+ 
+</script>
+  </body>
+</html>
